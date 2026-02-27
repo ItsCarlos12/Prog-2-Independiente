@@ -85,6 +85,7 @@ void liberarTienda(Tienda* tienda);
 void menuProductos(Tienda* tienda);
 void mostrarTabla();
 void imprimirFilaProducto(const Producto& p);
+int obtenerIndice(Tienda* tienda, int idBuscar);
 
 //Prototipos - Proveedores
 void menuProveedores(Tienda* tienda);
@@ -92,11 +93,13 @@ bool noProveedores(Tienda* tienda);
 void imprimirFilaProveedor(const Proveedor& prov);
 void mostrarProveedores();
 int obtenerIndiceProv(Tienda* tienda, int idBuscar);
+bool existeProveedor(Tienda* tienda, int idProveedor);
 
 //Prototipos - Utilidades
 void dibujarTabla(int anchos[], int columnas);
 bool compararLetras(const char* original, const char* busqueda);
 void mostrarBanner(const char* titulo);
+void obtenerFechaActual(char* fecha);
 
 //Prototipos - Clientes
 bool cedulaDuplicada(Tienda* tienda, const char* cedula);
@@ -106,6 +109,9 @@ void redimensionarClientes(Tienda* tienda);
 bool noClientes(Tienda* tienda);
 int obtenerIndiceCli(Tienda* tienda, int idBuscar);
 void menuClientes(Tienda* tienda);
+bool existeCliente(Tienda* tienda, int idCliente);
 
+//Prototipos - Transacciones
+void menuTransacciones(Tienda* tienda);
 
 #endif 

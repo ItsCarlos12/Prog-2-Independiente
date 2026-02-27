@@ -1,0 +1,33 @@
+Este proyecto es una aplicación de consola robusta desarrollada e C++ diseñada
+para administrar las operaciones diarias de una tienda. El sistema permite 
+gestionar un inventario de productos, registrar proveedores y clientes, y realizar
+un seguimiento detallado de todas las transacciones(Compra y Ventas) con actualización
+automática de stock.
+
+Comando para compilar con g++ -> g++ *.cpp -o nombre-de-ejecutable.exe
+
+Para ejecutar -> ./nombre-de-ejecutable.exe
+
+El proyecto está organizado de manera modular, para facilitar el mantenimiento.
+
+structs.h -> define las entidades principales -> "Producto", "Cliente", "Proveedor", "Transaccion" y "Tienda".
+
+productos.cpp -> lógica para la gestión de inventario y visualizacion de tablas.
+
+transacciones.cpp -> manejo de lógica de negocio(compra, ventas y anulaciones).
+
+clientes.cpp/proveedores.cpp -> administración de contactos y entidades relacionadas.
+
+utilidades.cpp -> funciones auxiliares para banners, dibujo de tablas y manejo de fechas.
+
+*Funciones implementadas* 
+
+Registro de Compras -> incrementa automaticamente el stock al comprar a un proveedor. 
+
+Registro de Ventas -> valida la existencia de stock suficiente y decrementa las unidades al vender a un cliente.
+
+Buscador avanzado -> filtros de transacciones por ID, fecha exacta, tipo o relación.
+
+Anulación de movimientos -> reversión automática de stock.
+
+Interfaz de tablas -> visualización profesional alineada mediante el uso de stew y setfill.

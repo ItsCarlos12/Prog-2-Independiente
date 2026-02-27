@@ -168,6 +168,9 @@ void listarProveedores(Tienda* tienda){
 
     dibujarTabla(anchosProv, colProv);
     cout << "Total de proveedores registrados: " << tienda -> numProveedores << endl;
+
+    cout << "\nPresione ENTER para continuar...";
+    cin.get();
 }
 
 void actualizarProveedor(Tienda* tienda){

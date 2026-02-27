@@ -469,6 +469,9 @@ void listarProductos(Tienda* tienda){
     dibujarTabla(anchosProd, col);
 
     cout << "Total de productos registrados: " << tienda -> numProductos << endl;
+
+    cout << "\nPresione ENTER para continuar...";
+    cin.get();
 }
 
 void actualizarStockProducto(Tienda* tienda){

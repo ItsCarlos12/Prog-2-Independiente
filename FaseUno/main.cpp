@@ -16,6 +16,7 @@ int main(){
         cout << "1. Gestion de productos" << endl;
         cout << "2. Gestion de Proveedores" << endl;
         cout << "3. Gestion de Clientes" << endl;
+        cout << "4. Gestion de Transacciones" << endl;
 
         cout << "0. Salir" << endl;
         cout << "Seleccione una opcion: ";
@@ -30,6 +31,8 @@ int main(){
                 menuProveedores(&miTienda); break;
             case 3: 
                 menuClientes(&miTienda); break;
+            case 4: 
+                menuTransacciones(&miTienda); break;
 
             case 0:
                 cout << "Saliendo del sistema. Hasta luego!" << endl;

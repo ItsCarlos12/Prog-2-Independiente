@@ -83,7 +83,7 @@ void crearCliente(Tienda* tienda){
 }
 
 void imprimirFilaCliente(const Cliente& c) {
-    cout << setfill(' '); // Clave para que no se rompa la tabla
+    cout << setfill(' '); 
     cout << "| " << left << setw(anchosCli[0]) << c.id
          << "| " << setw(anchosCli[1]) << c.cedula
          << "| " << setw(anchosCli[2]) << c.nombre
@@ -110,6 +110,9 @@ void listarClientes(Tienda* tienda) {
         imprimirFilaCliente(tienda->clientes[i]);
     }
     dibujarTabla(anchosCli, colCli);
+
+    cout << "\nPresione ENTER para continuar...";
+    cin.get();
 }
 
 int obtenerIndiceCli(Tienda* tienda, int idBuscar) {
@@ -323,10 +326,8 @@ void menuClientes(Tienda* tienda) {
 }
 
 void redimensionarClientes(Tienda* tienda){
-//calcular nueva capacidad (doble de la actual).
 int nuevaCapacidad = tienda -> capacidadClientes * 2;
 
-//crear nuevo arreglo con la nueva capacidad.
 Cliente* newArray = new Cliente[nuevaCapacidad];
 
 //copiar todos los clientes.
@@ -342,4 +343,13 @@ tienda -> capacidadClientes = nuevaCapacidad;
 
 cout<<"Redimensionado"<<endl;
 
+}
+
+bool existeCliente(Tienda* tienda, int idCliente) {
+    for (int i = 0; i < tienda->numClientes; i++) {
+        if (tienda->clientes[i].id == idCliente) {
+            return true;
+        }
+    }
+    return false;
 }
