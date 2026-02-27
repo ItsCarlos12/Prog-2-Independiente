@@ -65,7 +65,7 @@ void registrarCompra(Tienda* tienda) {
 
     // 9. Confirmar transacción
     char confirma;
-    cout << "¿Confirmar registro de compra? (S/N): ";
+    cout << "Confirmar registro de compra? (S/N): ";
     cin >> confirma;
 
     if (confirma == 's' || confirma == 'S') {
@@ -172,7 +172,7 @@ void registrarVenta(Tienda* tienda) {
 
     // 11. Confirmar transacción
     char confirma;
-    cout << "¿Confirmar venta? (S/N): ";
+    cout << "Confirmar venta? (S/N): ";
     cin >> confirma;
 
     if (confirma == 's' || confirma == 'S') {
@@ -354,7 +354,7 @@ void cancelarTransaccion(Tienda* tienda) {
     }
 
     char confirma;
-    cout << "\n¿Esta seguro de que desea anular esta transaccion? (S/N): ";
+    cout << "\nEsta seguro de que desea anular esta transaccion? (S/N): ";
     cin >> confirma;
 
     if (confirma == 's' || confirma == 'S') {

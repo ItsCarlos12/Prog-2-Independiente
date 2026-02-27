@@ -321,7 +321,7 @@ void actualizarProducto(Tienda* tienda){
             }
             case 7:{
                 char confirmar;
-                cout << "¿Guardar cambios? (S/N): ";
+                cout << "Guardar cambios? (S/N): ";
                 cin >> confirmar;
                 cin.ignore();
                 if(confirmar == 's' || confirmar == 'S'){
