@@ -98,5 +98,14 @@ void dibujarTabla(int anchos[], int columnas);
 bool compararLetras(const char* original, const char* busqueda);
 void mostrarBanner(const char* titulo);
 
+//Prototipos - Clientes
+bool cedulaDuplicada(Tienda* tienda, const char* cedula);
+void listarClientes(Tienda* tienda);
+void imprimirFilaCliente(const Cliente& c);
+void redimensionarClientes(Tienda* tienda);
+bool noClientes(Tienda* tienda);
+int obtenerIndiceCli(Tienda* tienda, int idBuscar);
+void menuClientes(Tienda* tienda);
+
 
 #endif 
