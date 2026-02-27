@@ -6,8 +6,8 @@
 
 using namespace std;
 
-int col = 7;
-int anchos [] = {4, 12, 20, 12, 10, 8, 12};
+static int col = 7;
+static int anchosProd [] = {4, 12, 20, 12, 10, 8, 12};
 
 //5. Redimensionar el array.
 void redimensionarProductos(Tienda* tienda){
@@ -150,8 +150,8 @@ void crearProducto(Tienda* tienda){
     cout << "\n--- Vista previa del registro ---" <<endl;
     mostrarTabla();
     imprimirFilaProducto(p);
-    int anchos[] = {4, 12, 20, 12, 10, 8, 12};
-    dibujarTabla(anchos, col);
+    int anchosProd[] = {4, 12, 20, 12, 10, 8, 12};
+    dibujarTabla(anchosProd, col);
 
     cout << "Descripcion: " << p.descripcion <<endl;
 
@@ -225,7 +225,7 @@ void buscarProducto(Tienda* tienda){
                 tablaMostrada = true;
             }
             imprimirFilaProducto(p);
-            dibujarTabla(anchos, col);
+            dibujarTabla(anchosProd, col);
             encontrado = true;
         }
     }
@@ -237,34 +237,42 @@ void buscarProducto(Tienda* tienda){
 
 //Mostrar Tabla
 void mostrarTabla(){
+    int anchoTotal = 0;
+    for(int i = 0; i < col; i++){
+        anchoTotal += anchosProd[i];
+    }
+    anchoTotal += col * 3 + 1;
 
-    cout << "\n" << setfill('=') << setw(85) << "" <<endl;
-    cout << " Listado de Productos" << endl; 
-    cout << setw(85) << "" << setfill(' ') << endl;
+    cout << "\n" << setfill('=') << setw(anchoTotal) << "" << endl;
+    cout << setfill(' ');
+    int padding = (anchoTotal - strlen("Listado de Productos")) / 2;
+    cout << setw(padding) << "" << "Listado de Productos" << endl;
+    cout << setw(anchoTotal) << setfill('=') << "" << endl;
+    cout << setfill(' ');
 
-    dibujarTabla(anchos, col);
+    dibujarTabla(anchosProd, col);
 
-    cout << "| " << left << setw(anchos[0]) << "ID"
-         << "| " << setw(anchos[1]) << "Codigo"
-         << "| " << setw(anchos[2]) << "Nombre"
-         << "| " << setw(anchos[3]) << "Proveedor"
-         << "| " << setw(anchos[4]) << "Precio"
-         << "| " << setw(anchos[5]) << "Stock"
-         << "| " << setw(anchos[6]) << "Fecha" << " |" <<endl;
+    cout << "| " << left << setw(anchosProd[0]) << "ID"
+         << "| " << setw(anchosProd[1]) << "Codigo"
+         << "| " << setw(anchosProd[2]) << "Nombre"
+         << "| " << setw(anchosProd[3]) << "Proveedor"
+         << "| " << setw(anchosProd[4]) << "Precio"
+         << "| " << setw(anchosProd[5]) << "Stock"
+         << "| " << setw(anchosProd[6]) << "Fecha" << " |" <<endl;
          
-    dibujarTabla(anchos, col);
+    dibujarTabla(anchosProd, col);
 }
 
 //Imprimir los productos en tabla.
 void imprimirFilaProducto(const Producto& p){
 
-    cout << "| " << left << setw(anchos[0]) << p.id
-         << "| " << setw(anchos[1]) << p.codigo
-         << "| " << setw(anchos[2]) << p.nombre
-         << "| " << setw(anchos[3]) << p.idProveedor
-         << "| " << setw(anchos[4]) << fixed << setprecision(2) <<  p.precio
-         << "| " << setw(anchos[5]) << p.stock
-         << "| " << setw(anchos[6]) << p.fechaRegistro << " |" <<endl;
+    cout << "| " << left << setw(anchosProd[0]) << p.id
+         << "| " << left << setw(anchosProd[1]) << p.codigo
+         << "| " << left << setw(anchosProd[2]) << p.nombre
+         << "| " << left << setw(anchosProd[3]) << p.idProveedor
+         << "| " << left << setw(anchosProd[4]) << fixed << setprecision(2) <<  p.precio
+         << "| " << left << setw(anchosProd[5]) << p.stock
+         << "| " << left << setw(anchosProd[6]) << p.fechaRegistro << " |" <<endl;
 }
 
 int obtenerIndice(Tienda * tienda, int idBuscar){
@@ -299,7 +307,7 @@ void actualizarProducto(Tienda* tienda){
         cout << "\nDatos actuales del producto" << endl;
         mostrarTabla();
         imprimirFilaProducto(pEdit);
-        dibujarTabla(anchos, col);
+        dibujarTabla(anchosProd, col);
 
         cout << "\nQue desea editar?" << endl;
         cout << "1. Codigo\n2. Nombre\n3. Descripcion\n4. Proveedor\n5. Precio\n6. Stock\n7. Guardar cambios\n0. Cancelar sin guardar\nSeleccione: ";
@@ -407,7 +415,7 @@ void actualizarProducto(Tienda* tienda){
             default:
                 cout << "Opcion no valida." << endl;
         }
-    } while(true);
+    } while(opcion!=0 && opcion != 7);
 }
 
 void eliminarProducto(Tienda* tienda){
@@ -429,7 +437,7 @@ void eliminarProducto(Tienda* tienda){
     cout << "\nProducto a eliminar: " << endl;
     mostrarTabla();
     imprimirFilaProducto(tienda -> productos[indice]);
-    dibujarTabla(anchos, col);
+    dibujarTabla(anchosProd, col);
 
     char confirmar;
     cout << "\n Esta seguro de eliminar este producto permanentemente? (S/N)";
@@ -458,7 +466,7 @@ void listarProductos(Tienda* tienda){
         imprimirFilaProducto(tienda -> productos[i]);
     }
 
-    dibujarTabla(anchos, col);
+    dibujarTabla(anchosProd, col);
 
     cout << "Total de productos registrados: " << tienda -> numProductos << endl;
 }
@@ -511,6 +519,7 @@ void menuProductos(Tienda* tienda){
     
     do{
         mostrarBanner("Gestion de Productos");
+        cout << endl;
         cout << "1. Registrar producto" << endl;
         cout << "2. Buscar producto" <<endl;
         cout << "3. Actualizar datos (General)" << endl;

@@ -111,5 +111,7 @@ void mostrarBanner(const char* titulo){
          << titulo
          << setw(ancho - textlength - espacios - 4) << "" << "||" << endl;
          
-    cout << " " << setfill('=') << setw(ancho) << setfill(' ') <<endl;
+    cout << " " << setfill('=') << setw(ancho) << "" <<endl;
+
+    cout << setfill(' ');
 }
